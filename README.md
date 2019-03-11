@@ -14,4 +14,36 @@ Code Explanation:
 9. generate json file
 
 
+Step-by-Step Compile
+
+1. Transform image to B/W
+
+![alt text](https://github.com/chunmusic/AlphaPilot_test2/blob/master/Screenshot%20from%202019-03-11%2021-32-17.png)
+
+![alt text](https://github.com/chunmusic/AlphaPilot_test2/blob/master/Screenshot%20from%202019-03-11%2021-52-00.png)
+
+
+2. Lower image size
+
+![alt text](https://github.com/chunmusic/AlphaPilot_test2/blob/master/Screenshot%20from%202019-03-11%2021-54-06.png)
+
+![alt text](https://github.com/chunmusic/AlphaPilot_test2/blob/master/Screenshot%20from%202019-03-11%2021-55-37.png)
+
+
+3.Find white bg // 4. Compensate and correct contours of photos 
+
+![alt text](https://github.com/chunmusic/AlphaPilot_test2/blob/master/Screenshot%20from%202019-03-11%2022-00-33.png)
+
+
+5. Find all white bg photos of which have area more than 10000.
+
+![alt text](https://github.com/chunmusic/AlphaPilot_test2/blob/master/Screenshot%20from%202019-03-11%2022-02-58.png)
+
+
+6. Draw contour on photo
+
+![alt text](https://github.com/chunmusic/AlphaPilot_test2/blob/master/Screenshot%20from%202019-03-11%2022-13-30.png)
+
+![alt text](https://github.com/chunmusic/AlphaPilot_test2/blob/master/Screenshot%20from%202019-03-11%2022-16-02.png)
+
 
