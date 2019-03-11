@@ -10,26 +10,11 @@ import numpy as np
 
 class GenerateFinalDetections():
     def __init__(self):
-        self.seed = 2018
+         self.seed = 2018
 
         
-    def predict(self,img):
-        np.random.seed(self.seed)
-        n_boxes = np.random.randint(4)
-        if n_boxes>0:
-            bb_all = 400*np.random.uniform(size = (n_boxes,9))
-            bb_all[:,-1] = 0.5
-        else:
-            bb_all = []
-
-        print(bb_all)
-        return bb_all.tolist()
-
-        
-
-        # img = cv2.resize(img,(500,500))
     
-    def predict2(self,img):
+    def predict(self,img):
 
         gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
@@ -38,15 +23,6 @@ class GenerateFinalDetections():
         pts2 = np.float32([[0,0],[1196,0],[0,764],[1196,764]])
         M = cv2.getPerspectiveTransform(pts1,pts2)
         dst = cv2.warpPerspective(gray,M,(1196,764))
-
-        # top = int(0.05 * dst.shape[0])  # shape[0] = rows
-        # bottom = top
-        # left = int(0.05 * dst.shape[1])  # shape[1] = cols
-        # right = left
-        # value = [randint(0, 255), randint(0, 255), randint(0, 255)]
-        # borderType = cv2.BORDER_CONSTANT
-        # dst = cv2.copyMakeBorder(dst, top, bottom, left, right, borderType, None, value)
-
 
         ret,thresh = cv2.threshold(dst,127,255,0)
 
@@ -91,8 +67,8 @@ class GenerateFinalDetections():
         else:
             result = hull_list
 
-
         list_result = [[]]
+
 
         for cnt2 in contours:
 
@@ -116,6 +92,11 @@ class GenerateFinalDetections():
 
             list_result[0].append(result[i][0][0])
             list_result[0].append(result[i][0][1])
- 
-        return list_result 
+
+
+        list_result[0].append(0.5)
+        test2_result = np.array(list_result)
+
+        
+        return test2_result.tolist()
         
