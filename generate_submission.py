@@ -19,6 +19,8 @@ finalDetector = GenerateFinalDetections()
 # load image, convert to RGB, run model and plot detections. 
 time_all = []
 pred_dict = {}
+
+
 for img_key in img_keys:
     img =cv2.imread('testing/images/'+img_key)
     img =cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -38,6 +40,5 @@ freq = np.round(1/mean_time,2)
 print('95% confidence interval for inference time is {0:.2f} +/- {1:.4f}.'.format(mean_time,ci_time))
 print('Operating frequency from loading image to getting results is {0:.2f}.'.format(freq))
 
-
-with open('random_submission.json', 'w') as f:
+with open('final_submission.json', 'w') as f:
     json.dump(pred_dict, f)
