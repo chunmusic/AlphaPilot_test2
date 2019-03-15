@@ -26,7 +26,7 @@ class GenerateFinalDetections():
 
         ret,thresh = cv2.threshold(dst,127,255,0)
 
-        _, contours,hier = cv2.findContours(thresh,cv2.RETR_LIST,cv2.CHAIN_APPROX_SIMPLE)
+        contours,hier = cv2.findContours(thresh,cv2.RETR_LIST,cv2.CHAIN_APPROX_SIMPLE)
 
 
         for i in range(len(contours)):
@@ -62,10 +62,10 @@ class GenerateFinalDetections():
                     hull_list.append(dummy)
                     # print(hull_list)
 
-        if len(hull_list)>=1:
-            result = hull_list[Area.index(max(Area))]
+        if len(hull_list)==0:
+                result = dummy
         else:
-            result = hull_list
+                result = hull_list[Area.index(max(Area))]
 
         list_result = [[]]
 
@@ -93,6 +93,7 @@ class GenerateFinalDetections():
             list_result[0].append(result[i][0][0])
             list_result[0].append(result[i][0][1])
 
+        
 
         list_result[0].append(0.5)
         test2_result = np.array(list_result)
